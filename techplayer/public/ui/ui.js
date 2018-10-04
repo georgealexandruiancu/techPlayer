@@ -18,6 +18,43 @@ $(document).ready(function () {
             $('ul').addClass('open');
             buttonMenu.style.position = "absolute";
         }  
-         
     });
+    var playMaxBtn = document.querySelector("#playMaxBtn");
+    var pausedMaxBtn = document.querySelector("#pausedMaxBtn");
+    var nextMaxBtn = document.querySelector("#nextMaxBtn");
+    var mutedMaxBtn = document.querySelector("#mutedMaxBtn");
+    
+
+    var x = document.getElementById("techMusic")
+    playMaxBtn.addEventListener("click", function(){
+        x.play();
+        x.volume = 1;
+        this.style.color = "#e73cd3";
+        pausedMaxBtn.style.color="white";
+        mutedMaxBtn.style.color = "white";
+
+    });
+    pausedMaxBtn.addEventListener("click", function () {
+        x.pause();
+        this.style.color = "#e73cd3";
+        playMaxBtn.style.color="white";
+    });
+    mutedMaxBtn.addEventListener("click", function () {
+        if(x.volume == 1){
+            x.volume = 0;
+            this.style.color = "#e73cd3";
+            playMaxBtn.style.color = "white";
+            pausedMaxBtn.style.color = "white";
+        }else{
+            x.volume = 1;
+            this.style.color = "white";
+            playMaxBtn.style.color = "#e73cd3";
+
+        }
+        
+    });
+    
 });
+
+
+
