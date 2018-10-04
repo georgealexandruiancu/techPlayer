@@ -261,12 +261,13 @@ audio{
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    background: linear-gradient(226deg, #692978, #472978, #2b2978, #294a78, #2b2978, #5f2978, #2d1e34, #050505, #050505);
+    background: white;
+    /* background: linear-gradient(226deg, #692978, #472978, #2b2978, #294a78, #2b2978, #5f2978, #2d1e34, #050505, #050505);
 background-size: 1800% 1800%;
 
 -webkit-animation: AnimationName 10s ease infinite;
 -moz-animation: AnimationName 10s ease infinite;
-animation: AnimationName 10s ease infinite;
+animation: AnimationName 10s ease infinite; */
     border-radius: 50%;
     filter: blur(10px)
 }
@@ -315,7 +316,7 @@ animation: AnimationName 10s ease infinite;
         opacity: 0.1;
     }
 }
-@-webkit-keyframes AnimationName {
+/* @-webkit-keyframes AnimationName {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
@@ -329,7 +330,7 @@ animation: AnimationName 10s ease infinite;
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
-}
+} */
 .logo-brand-max{
     position: fixed;
     left: 50%;
@@ -337,18 +338,7 @@ animation: AnimationName 10s ease infinite;
     transform: translate(-50%,-50%);
     font-family: Bazar;
     font-size: 6rem;
-    color: white;
+    color: black;
     z-index: 101;
     animation: blurPulsation 5s infinite;
-}
-@keyframes blurPulsation{
-    0%{
-        filter: blur(0);
-    }
-    50%{
-        filter: blur(5px);
-    }
-    100%{
-        filter: blur(0);
-    }
 }

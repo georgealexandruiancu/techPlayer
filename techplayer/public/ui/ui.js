@@ -65,6 +65,8 @@ $(document).ready(function () {
         
     });
    
-
+    $('.circleFull').tilt({
+        scale: 1.1
+    });
     
 });

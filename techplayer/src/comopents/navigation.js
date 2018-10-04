@@ -13,7 +13,7 @@ class Navigation extends Component {
         this.state = {
             music: '',
         };
-        // this.timer = this.timer.bind(this)
+        this.checkOver = this.checkOver.bind(this)
     }
     componentDidMount(){
         this.database.on('value', snapshot => {
@@ -49,7 +49,9 @@ class Navigation extends Component {
             param=0;
             this.nextTrack(param);
         }
+        
     }
+    
     MusicTable = () => {
         let table = [];
         for(let i=0;i<this.state.music.length;i++){
@@ -73,9 +75,11 @@ class Navigation extends Component {
     start(){
         this._audio.play()
     }
+    checkOver(){
+        this.nextTrack(((this.state.actualIndex == this.state.music.length - 1) ? this.state.actualIndex = 0 : this.state.actualIndex + 1));
+    }
     render() {
         
-
         return (
             
             <div>
