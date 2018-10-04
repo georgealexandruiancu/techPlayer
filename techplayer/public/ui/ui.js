@@ -1,4 +1,15 @@
 $(document).ready(function () {
+    setTimeout(function () {
+        $('#tracks-holder li').on('click', function (e) {
+            // console.log("seaprinde")
+            e.preventDefault();
+            $('#tracks-holder li').removeClass('actives');
+            $(this).addClass('actives');
+            playMaxBtn.style.color = "#e73cd3";
+            x.volume = 1;
+        });
+    }, 1000);
+    
     $('#box').on('click', function () {
         $('ul').toggleClass('open');
     });
@@ -53,8 +64,7 @@ $(document).ready(function () {
         }
         
     });
+   
+
     
 });
-
-
-

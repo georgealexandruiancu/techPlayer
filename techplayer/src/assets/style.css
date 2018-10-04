@@ -12,7 +12,7 @@
     background: black;
     overflow: hidden;
     transition: all 0.3s;
-    z-index: 1;
+    z-index: 100;
 }
 
 .fancyNav .logo-brand{
@@ -97,6 +97,17 @@ li.linesBtn:last-child{
     display: inline;
     opacity: 0.5;
 }
+.actives{
+    transition: all 0.2s;
+}
+li.actives{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+}
+li.actives .playBtn{
+    display: inline;
+}
 .tracks-holder li:hover{
     color: #e73cd3;
     cursor: pointer;
@@ -106,7 +117,24 @@ li.linesBtn:last-child{
 .tracks-holder li:hover .playBtn{
     display: inline;
 }   
+.tracks-holder li:active{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
 
+}
+.tracks-holder li:active .playBtn{
+    display: inline;
+} 
+.tracks-holder li:focus{
+    color: #e73cd3;
+    cursor: pointer;
+    padding-left: 50px;
+
+}
+.tracks-holder li:focus .playBtn{
+    display: inline;
+} 
 .miniFancyNav{
     position: fixed;
     top: 0;
@@ -204,7 +232,9 @@ li.linesBtn:last-child{
     font-size: 17px; 
     position: relative;
     top: -5px;
-    padding-left: 50px;
+  
+    left: 40%;
+    transform: translateX(-50%);
 }
 .songInfo .trackName{
     display: inline;
@@ -223,4 +253,102 @@ audio{
     position: relative;
     top: -5px;
     padding-left: 50px;
+}
+.circleFull{
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: linear-gradient(226deg, #692978, #472978, #2b2978, #294a78, #2b2978, #5f2978, #2d1e34, #050505, #050505);
+background-size: 1800% 1800%;
+
+-webkit-animation: AnimationName 10s ease infinite;
+-moz-animation: AnimationName 10s ease infinite;
+animation: AnimationName 10s ease infinite;
+    border-radius: 50%;
+    filter: blur(10px)
+}
+.circleBorder{
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 15px solid white;
+    border-radius: 50%;
+    animation: pulsation 2s infinite ease-out;
+}
+@keyframes pulsation{
+    0%{
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+    25%{
+        width: 600px;
+        height: 600px;
+        opacity: 0.5;
+        filter: blur(5px);
+
+    }
+    50%{
+        width: 650px;
+        height: 650px;
+        border: 20px solid white;
+        opacity: 1;
+        filter: blur(10px);
+    }
+    75%{
+        width: 600px;
+        height: 600px;
+        border: 15px solid white;
+        opacity: 0.5;
+        filter: blur(5px);
+
+    }
+    100%{
+        width: 500px;
+        height: 500px;
+        opacity: 0.1;
+    }
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName { 
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+.logo-brand-max{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-family: Bazar;
+    font-size: 6rem;
+    color: white;
+    z-index: 101;
+    animation: blurPulsation 5s infinite;
+}
+@keyframes blurPulsation{
+    0%{
+        filter: blur(0);
+    }
+    50%{
+        filter: blur(5px);
+    }
+    100%{
+        filter: blur(0);
+    }
 }
