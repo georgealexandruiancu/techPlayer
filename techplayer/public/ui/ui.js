@@ -6,6 +6,7 @@ $(document).ready(function () {
             $('#tracks-holder li').removeClass('actives');
             $(this).addClass('actives');
             playMaxBtn.style.color = "#e73cd3";
+            playMiniBtn.style.color = "#e73cd3";
             x.volume = 1;
         });
     }, 1000);
@@ -34,7 +35,10 @@ $(document).ready(function () {
     var pausedMaxBtn = document.querySelector("#pausedMaxBtn");
     var nextMaxBtn = document.querySelector("#nextMaxBtn");
     var mutedMaxBtn = document.querySelector("#mutedMaxBtn");
-    
+    var playMiniBtn = document.querySelector("#playMiniBtn");
+    var pausedMiniBtn = document.querySelector("#pausedMiniBtn");
+    var nextMiniBtn = document.querySelector("#nextMiniBtn");
+    var mutedMiniBtn = document.querySelector("#mutedMiniBtn");
 
     var x = document.getElementById("techMusic")
     playMaxBtn.addEventListener("click", function(){
@@ -64,9 +68,44 @@ $(document).ready(function () {
         }
         
     });
-   
-    $('.circleFull').tilt({
-        scale: 1.1
+    playMiniBtn.addEventListener("click", function () {
+        x.play();
+        x.volume = 1;
+        this.style.color = "#e73cd3";
+        pausedMiniBtn.style.color = "white";
+        mutedMiniBtn.style.color = "white";
+
     });
+    pausedMiniBtn.addEventListener("click", function () {
+        x.pause();
+        this.style.color = "#e73cd3";
+        playMiniBtn.style.color = "white";
+    });
+    mutedMiniBtn.addEventListener("click", function () {
+        if (x.volume == 1) {
+            x.volume = 0;
+            this.style.color = "#e73cd3";
+            playMiniBtn.style.color = "white";
+            pausedMiniBtn.style.color = "white";
+        } else {
+            x.volume = 1;
+            this.style.color = "white";
+            playMiniBtn.style.color = "#e73cd3";
+
+        }
+
+    });
+    // var seeking = false;
+    // seekslider = document.getElementById("seekslider");
+    // seekslider.addEventListener("mousedown", function (event) { seeking = true; seek(event); });
+    // seekslider.addEventListener("mousemove", function (event) { seek(event); });
+    // seekslider.addEventListener("mouseup", function () { seeking = false; });
+    // function seek(event) {
+    //     if (seeking) {
+    //         seekslider.value = event.clientX - seekslider.offsetLeft;
+    //         seekto = x.duration * (seekslider.value / 100);
+    //         x.currentTime = seekto;
+    //     }
+    // }
     
 });

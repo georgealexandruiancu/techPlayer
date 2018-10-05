@@ -12,10 +12,11 @@ class Navigation extends Component {
         this.database = this.app.database().ref();
         this.state = {
             music: '',
+            seconds: 0
         };
-        this.checkOver = this.checkOver.bind(this)
+        this.checkOver = this.checkOver.bind(this);
     }
-    componentDidMount(){
+    componentWillMount(){
         this.database.on('value', snapshot => {
             var snapMusic = _.values(snapshot.val())
             this.setState({
@@ -27,9 +28,7 @@ class Navigation extends Component {
             console.log(this.state.music);
             console.log(this.state.isPlaying);
         });
-       
-    }
-    
+    }  
 
     handleClick(param,songName,artistName, index, e) {
         console.log(param);
@@ -39,6 +38,8 @@ class Navigation extends Component {
             this.refs.audio.load();
             this.refs.audio.play();  
         });
+        console.log("Audio play: " + this.refs.audio.duration);
+      
     } 
 
     nextTrack(param, e){
@@ -49,14 +50,13 @@ class Navigation extends Component {
             param=0;
             this.nextTrack(param);
         }
-        
     }
     
     MusicTable = () => {
         let table = [];
         for(let i=0;i<this.state.music.length;i++){
             table.push(
-                <li key={this.state.music[i].urlSong.toString()} onClick={this.handleClick.bind(this, this.state.music[i].urlSong.toString(), this.state.music[i].song, this.state.music[i].artist, i)}>
+                <li key={this.state.music[i].urlSong.toString()} refs={this.state.music[i].urlSong.toString()} onClick={this.handleClick.bind(this, this.state.music[i].urlSong.toString(), this.state.music[i].song, this.state.music[i].artist, i)}>
                     <div className="playBtn">
                         <i className="fas fa-play-circle"></i>
                     </div>
@@ -71,10 +71,7 @@ class Navigation extends Component {
         }
         return table;
     }
-   
-    start(){
-        this._audio.play()
-    }
+    
     checkOver(){
         this.nextTrack(((this.state.actualIndex == this.state.music.length - 1) ? this.state.actualIndex = 0 : this.state.actualIndex + 1));
     }
@@ -174,7 +171,8 @@ class Navigation extends Component {
                         retina_detect: true
                     }}
                     style={{
-                        width: '100%',
+                        width: '',
+                        height: '100%',
                         background: 'black'
                     }}
                 />
@@ -198,25 +196,38 @@ class Navigation extends Component {
 
                 </div>
                 <div className="miniFancyNav">
-                    <div className="playMiniBtn playBtn">
+                    <div className="playMiniBtn playBtn" id="playMiniBtn">
                         <i className="fas fa-play-circle"></i>
                     </div>
-                    <div className="pausedMiniBtn">
-                        <i class="fas fa-pause-circle"></i>
+                    <div className="pausedMiniBtn" id="pausedMiniBtn">
+                        <i className="fas fa-pause-circle"></i>
                     </div>
-                    <div className="nextMiniBtn">
-                        <i class="fas fa-chevron-circle-right"></i>
+                    <div className="nextMiniBtn" id="nextMiniBtn">
+                        <i className="fas fa-chevron-circle-right" onClick={this.nextTrack.bind(this, ((this.state.actualIndex == this.state.music.length - 1) ? this.state.actualIndex = 0 : this.state.actualIndex + 1))}></i>
+                    </div>
+                    <div className="mutedMiniBtn" id="mutedMiniBtn">
+                        <i className="fas fa-volume-off"></i>
                     </div>
                 </div>
-                <audio ref="audio" id="techMusic" src={this.state.isPlaying} controls>
+                <audio onEnded={() => this.nextTrack.bind(this, ((this.state.actualIndex == this.state.music.length - 1) ? this.state.actualIndex = 0 : this.state.actualIndex + 1))} ref="audio" id="techMusic" src={this.state.isPlaying} controls>
                     Your browser does not support the audio element.
                 </audio>
                 <div className="circleFull"></div>
                 <div className="circleBorder"></div>
                 <div className="logo-brand-max">
                     TECHOBS
+                    
                 </div>
-
+                <div className="songInfoMini">
+                    <div className="trackName">
+                        {this.state.actualSong}
+                    </div>
+                    <div className="artistName">
+                        - {this.state.actualArtist}
+                    </div>
+                </div>
+                {/* <input id="seekslider" type="range" min="0" max="100" value="0" step="1"></input> */}
+                
                 <div className="maxPlayer">
 
                     <div className="audio-player">
@@ -226,14 +237,14 @@ class Navigation extends Component {
                                     <i className="fas fa-play-circle"></i>
                                 </div>
                                 <div className="pausedMaxBtn" id="pausedMaxBtn">
-                                    <i class="fas fa-pause-circle"></i>
+                                    <i className="fas fa-pause-circle"></i>
                                 </div>
                                 <div className="nextMaxBtn" id="nextMaxBtn" onClick={this.nextTrack.bind(this, ((this.state.actualIndex == this.state.music.length-1) ? this.state.actualIndex = 0: this.state.actualIndex+1))}>
-                                    <i class="fas fa-chevron-circle-right"></i>
+                                    <i className="fas fa-chevron-circle-right"></i>
                                     
                                 </div>
                                 <div className="mutedMaxBtn" id="mutedMaxBtn">
-                                    <i class="fas fa-volume-off"></i>
+                                    <i className="fas fa-volume-off"></i>
                                 </div>
                             </div>
                             
