@@ -1,14 +1,14 @@
 {
-  "main.css": "/techobs/static/css/main.5ddcfdf8.chunk.css",
-  "main.js": "/techobs/static/js/main.4bd4c74d.chunk.js",
-  "main.js.map": "/techobs/static/js/main.4bd4c74d.chunk.js.map",
-  "static/js/1.17f6aa65.chunk.js": "/techobs/static/js/1.17f6aa65.chunk.js",
-  "static/js/1.17f6aa65.chunk.js.map": "/techobs/static/js/1.17f6aa65.chunk.js.map",
-  "runtime~main.js": "/techobs/static/js/runtime~main.e84bb23b.js",
-  "runtime~main.js.map": "/techobs/static/js/runtime~main.e84bb23b.js.map",
-  "static/media/style.css": "/techobs/static/media/Bazar.55d87e92.ttf",
-  "static/css/main.5ddcfdf8.chunk.css.map": "/techobs/static/css/main.5ddcfdf8.chunk.css.map",
-  "index.html": "/techobs/index.html",
-  "precache-manifest.2574a6443ebf1add2e791e4e9da24834.js": "/techobs/precache-manifest.2574a6443ebf1add2e791e4e9da24834.js",
-  "service-worker.js": "/techobs/service-worker.js"
+  "main.css": "/techPlayer/static/css/main.61833378.chunk.css",
+  "main.js": "/techPlayer/static/js/main.3254a6a3.chunk.js",
+  "main.js.map": "/techPlayer/static/js/main.3254a6a3.chunk.js.map",
+  "static/js/1.e66c37a2.chunk.js": "/techPlayer/static/js/1.e66c37a2.chunk.js",
+  "static/js/1.e66c37a2.chunk.js.map": "/techPlayer/static/js/1.e66c37a2.chunk.js.map",
+  "runtime~main.js": "/techPlayer/static/js/runtime~main.13cbdba0.js",
+  "runtime~main.js.map": "/techPlayer/static/js/runtime~main.13cbdba0.js.map",
+  "static/media/style.css": "/techPlayer/static/media/Bazar.55d87e92.ttf",
+  "static/css/main.61833378.chunk.css.map": "/techPlayer/static/css/main.61833378.chunk.css.map",
+  "index.html": "/techPlayer/index.html",
+  "precache-manifest.cb376d8f1f178a14d2d9f65d8cbb3ea2.js": "/techPlayer/precache-manifest.cb376d8f1f178a14d2d9f65d8cbb3ea2.js",
+  "service-worker.js": "/techPlayer/service-worker.js"
 }
