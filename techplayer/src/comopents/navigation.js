@@ -17,7 +17,7 @@ class Navigation extends Component {
         this.checkOver = this.checkOver.bind(this);
     }
     componentWillMount(){
-        fetch('http://evil-quail-96.localtunnel.me/')
+        fetch('https://evil-quail-96.localtunnel.me/')
             .then(response => response.json())
             .then(data => {
                 var snapMusic = _.values(data);
