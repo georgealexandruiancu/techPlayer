@@ -18,6 +18,7 @@
 .firebaserc
 .firebase.json
 
+/TechObs
 /src/Config.js
 
 npm-debug.log*

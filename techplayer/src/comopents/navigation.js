@@ -17,17 +17,20 @@ class Navigation extends Component {
         this.checkOver = this.checkOver.bind(this);
     }
     componentWillMount(){
-        this.database.on('value', snapshot => {
-            var snapMusic = _.values(snapshot.val())
-            this.setState({
-                music: snapMusic,
-                isPlaying: snapMusic[0].urlSong,
-                sizeParticles: 5,
-                speedParticles: 5
+        fetch('http://evil-quail-96.localtunnel.me/')
+            .then(response => response.json())
+            .then(data => {
+                var snapMusic = _.values(data);
+                // console.log(snapMusic);
+                this.setState({
+                    music: snapMusic,
+                    isPlaying: snapMusic[0].urlSong,
+                    sizeParticles: 5,
+                    speedParticles: 5
+                });
+                console.log(this.state.music);
+                
             });
-            console.log(this.state.music);
-            console.log(this.state.isPlaying);
-        });
     }  
 
     handleClick(param,songName,artistName, index, e) {
@@ -209,7 +212,7 @@ class Navigation extends Component {
                         <i className="fas fa-volume-off"></i>
                     </div>
                 </div>
-                <audio onEnded={() => this.nextTrack.bind(this, ((this.state.actualIndex == this.state.music.length - 1) ? this.state.actualIndex = 0 : this.state.actualIndex + 1))} ref="audio" id="techMusic" src={this.state.isPlaying} controls>
+                <audio onEnded={this.nextTrack.bind(this, ((this.state.actualIndex == this.state.music.length - 1) ? this.state.actualIndex = 0 : this.state.actualIndex + 1))} ref="audio" id="techMusic" src={this.state.isPlaying} controls>
                     Your browser does not support the audio element.
                 </audio>
                 <div className="circleFull"></div>
